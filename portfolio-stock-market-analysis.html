@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Stock Market Analysis - Steve</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <style>
+        .slide-description {
+            background-color: #f8f9fa;
+            border-left: 4px solid #007bff;
+            padding: 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            transition: all 0.5s ease;
+        }
+        .slide-description h3 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .slide-description p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+        .portfolio-info ul li a {
+            word-break: break-all;
+        }
+        .portfolio-details {
+            padding-top: 40px;
+        }
+        .tech-stack {
+            margin: 20px 0;
+        }
+        .tech-stack span {
+            background: #f8f9fa;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 0 5px 10px 0;
+            display: inline-block;
+            font-size: 14px;
+            color: #6c757d;
+        }
+        .project-stats {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        }
+        .github-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 15px 0;
+        }
+        .github-stat {
+            text-align: center;
+        }
+        .github-stat .number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0563bb;
+        }
+        .project-description {
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+        .category-badge {
+            background: #0563bb;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .tech-badges span {
+            background: #f8f9fa;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 0 5px 10px 0;
+            display: inline-block;
+            font-size: 14px;
+            color: #6c757d;
+            border: 1px solid #dee2e6;
+        }
+        .project-overview {
+            margin: 30px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+        }
+        .project-overview h3 {
+            color: #0563bb;
+            margin-bottom: 20px;
+        }
+        .project-badge {
+            background: #34495e;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+        .live-demo-btn {
+            background: #0563bb;
+            color: #fff;
+            padding: 8px 25px;
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .live-demo-btn i {
+            margin-left: 8px;
+        }
+        .project-metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .metric-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0563bb;
+        }
+        .metric-label {
+            font-size: 14px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header" class="fixed-top">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <h1 class="logo me-auto me-lg-0"><a href="index.html">Steve</a></h1>
+            <nav id="navbar" class="navbar order-last order-lg-0">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutme.html">About me</a></li>
+                    <li><a class="active" href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="portfolio-details">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 mx-auto">
+                        <!-- Project Header -->
+                        <div class="project-header">
+                            <h1>Stock Market Analysis</h1>
+                            <div class="project-meta">
+                                <span><i class="bi bi-code-square"></i> Data Analysis</span>
+                                <span><i class="bi bi-graph-up"></i> Financial Insights</span>
+                                <span><i class="bi bi-github"></i> <a href="https://github.com/stevoadjei/stocks">View on GitHub</a></span>
+                            </div>
+                        </div>
+
+                        <!-- Project Overview -->
+                        <div class="project-section">
+                            <h2>Project Overview</h2>
+                            <p>Stock Market Analysis</p>
+                            <p>This project focuses on analyzing stock market data to uncover insights and trends. By examining historical stock prices and trading volumes, we aim to provide actionable insights for investors.</p>
+                            <p>Objective: The primary goal is to analyze stock market data to identify trends and patterns. This analysis will enable investors to:</p>
+                            <ul>
+                                <li>Make informed investment decisions.</li>
+                                <li>Identify potential investment opportunities.</li>
+                            </ul>
+                            <p>Approach:</p>
+                            <ul>
+                                <li>Data Collection: Using Yahoo Finance API to fetch historical stock data.</li>
+                                <li>Exploratory Data Analysis: Visualizing stock prices and trading volumes.</li>
+                                <li>Insights & Visualization: Providing actionable insights based on the analysis.</li>
+                            </ul>
+                            <p>Join us in exploring the stock market data and uncovering insights that can help investors make better decisions!</p>
+                        </div>
+
+                        <!-- Dataset Overview -->
+                        <div class="project-section">
+                            <h2>Dataset Overview</h2>
+                            <p>Shape: 1,000,000 rows and 6 columns.</p>
+                            <ul>
+                                <li>Date (datetime): Date of the stock price.</li>
+                                <li>Open (float): Opening price of the stock.</li>
+                                <li>High (float): Highest price of the stock during the day.</li>
+                                <li>Low (float): Lowest price of the stock during the day.</li>
+                                <li>Close (float): Closing price of the stock.</li>
+                                <li>Volume (int): Number of shares traded.</li>
+                            </ul>
+                            <p>Missing Values: None detected in the dataset.</p>
+                            <p>Duplicate: None detected in the dataset.</p>
+                        </div>
+
+                        <!-- Data Analysis -->
+                        <div class="project-section">
+                            <h2>Data Analysis</h2>
+                            <div class="analysis-card">
+                                <div class="visualization">
+                                    <img src="assets/img/portfolio/stk1.png" alt="Stock Price Trends" class="img-fluid">
+                                    <div class="viz-caption">
+                                        <h4>Stock Price Trends</h4>
+                                        <p>Visualizing historical stock prices over time.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Trading Volume Analysis -->
+                        <div class="project-section">
+                            <h2>Trading Volume Analysis</h2>
+                            <div class="model-metrics">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="metric-card">
+                                            <img src="assets/img/portfolio/stk2.png" alt="Trading Volume Trends" class="img-fluid">
+                                            <h4>Trading Volume Trends</h4>
+                                            <p>Analyzing trading volumes over time.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="metric-card">
+                                            <img src="assets/img/portfolio/stk4.png" alt="Volume Distribution" class="img-fluid">
+                                            <h4>Volume Distribution</h4>
+                                            <p>Distribution of trading volumes across different time periods.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Key Findings -->
+                        <div class="project-section">
+                            <h2>Key Findings</h2>
+                            <div class="features-card">
+                                <img src="assets/img/portfolio/stk3.png" alt="Key Findings" class="img-fluid">
+                                <div class="features-content">
+                                    <h4>Key Findings</h4>
+                                    <p>Insights into stock price trends and trading volumes.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Technical Implementation -->
+                        <div class="project-section">
+                            <h2>Technical Implementation</h2>
+                            <div class="tech-stack">
+                                <div class="tech-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Pandas</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-chart-bar"></i>
+                                    <span>Matplotlib</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-chart-pie"></i>
+                                    <span>Seaborn</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-chart-area"></i>
+                                    <span>Plotly</span>
+                                </div>
+                                <div class="tech-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>SQL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <!-- Template Main JS File -->
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        const projectData = {
+            'stock-market-analysis': {
+                title: "Stock Market Analysis",
+                status: "Completed",
+                category: "Data Analysis",
+                client: "Financial Analysts",
+                date: "August 21, 2023",
+                github: "https://github.com/stevoadjei/stock_market_analysis",
+                demo: "https://example.com/live-demo",
+                description: "Stock Market Analysis. Analyzing historical stock prices and trading volumes to uncover insights.",
+                metrics: [
+                    { value: "1,000,000", label: "Total Records" },
+                    { value: "6", label: "Features" },
+                    { value: "0", label: "Missing Values" }
+                ],
+                technologies: [
+                    "Python", "Pandas", "NumPy", "SQL"
+                ],
+                features: [
+                    "Automated data cleaning pipeline",
+                    "Error detection and correction",
+                    "Scalable architecture",
+                    "Detailed logging and reporting",
+                    "Integration with various data sources"
+                ],
+                images: [
+                    "assets/img/portfolio/stk1.png",
+                    "assets/img/portfolio/stk2.png",
+                    "assets/img/portfolio/stk3.png",
+                    "assets/img/portfolio/stk4.png"
+                ]
+            }
+            // Add more project categories as needed
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectType = urlParams.get('type') || 'stock-market-analysis';
+            
+            if (projectData[projectType]) {
+                const project = projectData[projectType];
+                
+                // Load project images
+                const swiperWrapper = document.getElementById('project-images');
+                project.images.forEach(img => {
+                    swiperWrapper.innerHTML += `
+                        <div class="swiper-slide">
+                            <img src="${img}" alt="Project Screenshot" class="img-fluid">
+                        </div>
+                    `;
+                });
+
+                // Update project details
+                document.getElementById('project-title').textContent = project.title;
+                document.getElementById('project-status').textContent = project.status;
+                document.getElementById('project-category').textContent = project.category;
+                document.getElementById('project-client').textContent = project.client;
+                document.getElementById('project-date').textContent = project.date;
+                document.getElementById('github-link').href = project.github;
+                document.getElementById('github-link').textContent = project.github;
+                document.getElementById('project-description').innerHTML = `<p>${project.description}</p>`;
+                document.getElementById('live-demo').href = project.demo;
+
+                // Update metrics
+                const metricsHtml = project.metrics
+                    .map(metric => `
+                        <div class="metric-card">
+                            <div class="metric-value">${metric.value}</div>
+                            <div class="metric-label">${metric.label}</div>
+                        </div>
+                    `).join('');
+                document.querySelector('.project-metrics').innerHTML = metricsHtml;
+
+                // Update technologies
+                const techBadges = project.technologies
+                    .map(tech => `<span class="tech-badge">${tech}</span>`)
+                    .join('');
+                document.getElementById('tech-badges').innerHTML = techBadges;
+
+                // Update features
+                const featuresHtml = project.features
+                    .map(feature => `<li>${feature}</li>`)
+                    .join('');
+                document.getElementById('key-features').innerHTML = featuresHtml;
+
+                // Initialize swiper
+                new Swiper('.portfolio-details-slider', {
+                    pagination: {
+                        el: '.swiper-pagination',
+                        type: 'bullets',
+                        clickable: true
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

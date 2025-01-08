@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Excel Data Cleaning: A Comprehensive Guide">
+  <meta name="keywords" content="Excel, Data Cleaning, Data Science, Tutorial">
+  <meta name="author" content="Steve">
+  <title>Excel Data Cleaning: A Comprehensive Guide</title>
+  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="logo me-auto me-lg-0"><a href="index.html" class="js-scroll-trigger">Steve</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link js-scroll-trigger" href="index.html#hero">Home</a></li>
+          <li><a class="nav-link js-scroll-trigger" href="index.html#about">About</a></li>
+          <li><a class="nav-link js-scroll-trigger" href="index.html#portfolio">Portfolio</a></li>
+          <li><a class="nav-link js-scroll-trigger" href="index.html#blog">Blog</a></li>
+          <li><a class="nav-link js-scroll-trigger" href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="blog-single">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <article class="blog-post">
+              <!-- Featured Image -->
+              <div class="post-img">
+                <img src="assets/img/testimonials/blog2.jpg" alt="Excel Data Cleaning" class="img-fluid">
+              </div>
+
+              <!-- Post Header -->
+              <div class="post-header">
+                <h1>Mastering Excel Data Cleaning: A Professional Guide</h1>
+                <div class="post-meta">
+                  <span><i class="bi bi-calendar"></i> April 1, 2024</span>
+                  <span><i class="bi bi-person"></i> By Steve</span>
+                  <span><i class="bi bi-tag"></i> Data Science</span>
+                </div>
+              </div>
+
+              <!-- Post Content -->
+              <div class="post-content">
+                <div class="post-intro">
+                  <p>Data cleaning is a critical step in any data analysis workflow. In this comprehensive guide, we'll explore professional techniques to clean and prepare your data using Excel's powerful features.</p>
+                </div>
+
+                <div class="technique-section">
+                  <h2>1. Identifying and Handling Duplicates</h2>
+                  <div class="technique-card">
+                    <div class="steps">
+                      <p>Follow these steps to effectively manage duplicate entries:</p>
+                      <ol>
+                        <li>Select your data range</li>
+                        <li>Navigate to Home → Conditional Formatting</li>
+                        <li>Select Highlight Cell Rules → Duplicate Values</li>
+                        <li>Choose your preferred highlighting style</li>
+                      </ol>
+                    </div>
+                    <div class="pro-tip">
+                      <p><strong>Pro Tip:</strong> Use Remove Duplicates feature for automatic cleanup of duplicate rows.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="technique-section">
+                  <h2>2. Smart Data Trimming</h2>
+                  <div class="technique-card">
+                    <div class="steps">
+                      <p>Clean up unwanted spaces using the TRIM function:</p>
+                      <pre><code>=TRIM(reference_cell)</code></pre>
+                      <p>Example: <code>=TRIM(D2)</code></p>
+                      <p>Apply to multiple cells:</p>
+                      <ol>
+                        <li>Enter formula in first cell</li>
+                        <li>Double-click fill handle to copy down</li>
+                        <li>Copy and Paste Values (Ctrl+Shift+V)</li>
+                      </ol>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- ... Continue with other sections ... -->
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Steve</span></strong>. All Rights Reserved
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
