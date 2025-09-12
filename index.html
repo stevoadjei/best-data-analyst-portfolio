@@ -159,6 +159,7 @@
           <div class="col-12">
               <div class="portfolio-filters text-center">
                   <button class="btn btn-filter active" data-filter="*">All</button>
+                <button class="btn btn-filter active" data-filter=".grc">GRC</button>
                   <button class="btn btn-filter" data-filter=".health">Health</button>
                   <button class="btn btn-filter" data-filter=".business">Business</button>
                   <button class="btn btn-filter" data-filter=".stocks">Stocks</button>
@@ -190,7 +191,15 @@
           <!-- Portfolio Items List -->
           <script>
               const portfolioItems = [
-                  {
+                   {
+                      category: 'grc',
+                      imgSrc: 'assets/img/portfolio/hotelbarss.png',
+                      title: '3rd party risk',
+                      description: 'Vendor risk',
+                      summary: 'Analyzing hotel booking data to uncover insights and trends.',
+                      detailsLink: 'https://grcdashboard.streamlit.app/',
+                      pageType: 'sales-performance'
+                  }, {
                       category: 'business',
                       imgSrc: 'assets/img/portfolio/hotelbarss.png',
                       title: 'Hotel Booking Analysis',
