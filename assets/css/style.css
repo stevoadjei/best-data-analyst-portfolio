@@ -459,7 +459,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero {
     width: 100%;
     
-    min-height: 60vh !important; 
+    min-height: 70vh !important; 
     height: auto !important;
     
     background: #f5f7fa;
