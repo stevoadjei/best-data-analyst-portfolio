@@ -118,41 +118,51 @@
      * Portfolio functionality: Isotope filtering and lightbox
      * CORRECTED: Relies solely on Isotope and targets the correct .btn-filter class for filtering.
      */
-    const portfolio = () => {
-        const container = select(".portfolio-container");
-        if (container) {
-            // 1. Initialize Isotope
-            const isotope = new Isotope(container, { itemSelector: ".portfolio-item" });
-            
-            // 2. Select all filter buttons
-            const filters = select(".btn-filter", true);
+    /**
+ * Portfolio functionality: Isotope filtering and lightbox
+ * CRITICAL FIX: Ensures Isotope forces a layout redraw after filtering to fix positioning errors.
+ */
+const portfolio = () => {
+    const container = select(".portfolio-container");
+    if (container) {
+        // 1. Initialize Isotope
+        const isotope = new Isotope(container, { 
+            itemSelector: ".portfolio-item",
+            layoutMode: 'fitRows' // Use fitRows to ensure items start cleanly at the top left
+        });
+        
+        // 2. Select all filter buttons
+        const filters = select(".btn-filter", true);
 
-            // 3. Attach click listener to buttons
-            on(
-                "click",
-                ".btn-filter", // Target the button class
-                (e) => {
-                    e.preventDefault();
-                    
-                    // Update active state on buttons
-                    filters.forEach((el) => el.classList.remove("active"));
-                    e.target.classList.add("active");
-                    
-                    // Use Isotope to filter and arrange the items
-                    // Data-filter contains the class name (e.g., .fr)
-                    isotope.arrange({ filter: e.target.getAttribute("data-filter") });
-                },
-                true
-            );
+        on(
+            "click",
+            ".btn-filter",
+            (e) => {
+                e.preventDefault();
+                
+                // Update active state on buttons
+                filters.forEach((el) => el.classList.remove("active"));
+                e.target.classList.add("active");
+                
+                // Use Isotope to filter and arrange the items
+                isotope.arrange({ filter: e.target.getAttribute("data-filter") });
 
-            // Refresh animations after filtering
-            isotope.on("arrangeComplete", () => AOS.refresh());
-        }
+                // 💡 CRITICAL: Force a layout refresh immediately after filtering
+                setTimeout(() => {
+                    isotope.layout(); 
+                }, 300); // Wait 300ms for animations/hiding to complete
+            },
+            true
+        );
 
-        // Initialize portfolio lightboxes
-        GLightbox({ selector: ".portfolio-lightbox" });
-        GLightbox({ selector: ".portfolio-details-lightbox", width: "90%", height: "90vh" });
-    };
+        // Refresh animations after filtering
+        isotope.on("arrangeComplete", () => AOS.refresh());
+    }
+
+    // Initialize portfolio lightboxes
+    GLightbox({ selector: ".portfolio-lightbox" });
+    GLightbox({ selector: ".portfolio-details-lightbox", width: "90%", height: "90vh" });
+};
 
     /**
      * Portfolio details slider
