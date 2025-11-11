@@ -7,7 +7,7 @@
 }
 
 #hero {
-    min-height: 90vh; /* Adjust this value (e.g., 85vh) until the desired amount of the #about section is visible */
+    min-height: 80vh; /* Adjust this value (e.g., 85vh) until the desired amount of the #about section is visible */
 }
 .portfolio .portfolio-item {
     position: relative;
