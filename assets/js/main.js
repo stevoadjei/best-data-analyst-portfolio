@@ -116,25 +116,24 @@
 
     /**
      * Portfolio functionality: Isotope filtering and lightbox
-     * REVERTED TO STABLE LOGIC, ENSURES CORRECT FILTER TARGETING.
+     * FINAL FIX: Uses 'fitRows' and forces layout redraw to ensure correct positioning.
      */
     const portfolio = () => {
         const container = select(".portfolio-container");
         if (container) {
-            // Initialize Isotope with a stable configuration
+            // 1. Initialize Isotope with 'fitRows' layout mode
             const isotope = new Isotope(container, {
                 itemSelector: ".portfolio-item",
-                // Use fitRows for predictable grid layout, fixes many alignment bugs
-                layoutMode: 'fitRows'
+                layoutMode: 'fitRows' 
             });
             
-            // Select all filter buttons
+            // 2. Select all filter buttons
             const filters = select(".btn-filter", true);
 
-            // Attach click listener to buttons
+            // 3. Attach click listener to buttons
             on(
                 "click",
-                ".btn-filter", // Correctly targets your button class
+                ".btn-filter", // Target the button class
                 (e) => {
                     e.preventDefault();
                     
@@ -144,13 +143,12 @@
                     
                     // Use Isotope to filter and arrange the items
                     isotope.arrange({ filter: e.target.getAttribute("data-filter") });
-                    
-                    // Force a re-layout after filtering to ensure the top-left alignment is reset
-                    // This must be delayed slightly to account for CSS/AOS transitions
+
+                    // CRITICAL FIX: Force a layout refresh immediately after filtering
+                    // This prevents projects from maintaining their old vertical position.
                     setTimeout(() => {
                         isotope.layout(); 
-                    }, 500); 
-
+                    }, 300); // Wait 300ms for visibility changes/animations to settle
                 },
                 true
             );
@@ -226,7 +224,7 @@
         mobileNav();
         handleScrollToLinks();
         preloader();
-        portfolio(); // Uses the stable logic
+        portfolio(); // Uses the corrected logic
         portfolioSlider();
         skillsAnimation();
         testimonialsSlider();
