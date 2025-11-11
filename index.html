@@ -155,54 +155,54 @@
               </div>
           </template>
           <!-- Portfolio Items List -->
-         <script>
+          <script>
     const portfolioItems = [
         {
-            // CHANGE: category must be the short code matching data-filter
+            // 💡 FIX: 'category' must use the short code to match the filter button's data-filter
             category: 'fr', 
             imgSrc: 'assets/img/portfolio/hotelbarss.png',
             title: '3rd party risk',
-            description: 'Financial and Risk', // The visible description can remain long
-            summary: 'Analyzing hotel booking data to uncover insights and trends.',
+            description: 'Financial and Risk', // This descriptive text is for display only
+            summary: 'Vendor risk analysis and compliance auditing using Python and Streamlit.',
             detailsLink: 'https://grcdashboard.streamlit.app/',
             pageType: 'fr'
         }, {
-            // CHANGE: category must be the short code matching data-filter
+            // 💡 FIX: Using short code 'opo'
             category: 'opo', 
             imgSrc: 'assets/img/portfolio/hotelbarss.png',
             title: 'Hotel Booking Analysis',
-            description: 'Operational and Process Optimization', // The visible description can remain long
-            summary: 'Analyzing hotel booking data to uncover insights and trends.',
+            description: 'Operational and Process Optimization',
+            summary: 'Analyzing hotel booking data to uncover insights and trends in operational efficiency.',
             detailsLink: 'portfolio-del.html',
             pageType: 'opo'
         },
         {
-            // CHANGE: category must be the short code matching data-filter
+            // 💡 FIX: Using short code 'opo'
             category: 'opo', 
             imgSrc: 'assets/img/portfolio/custseg9.png',
             title: 'Customer Segmentation Analysis',
-            description: 'Operational and Process Optimization', // The visible description can remain long
-            summary: 'Customer segmentation analysis using K-Means clustering on Walmart sales data.',
+            description: 'Operational and Process Optimization',
+            summary: 'Customer segmentation analysis using K-Means clustering on retail sales data.',
             detailsLink: 'portfolio-detail.html',
             pageType: 'opo'
         },
         {
-            // CHANGE: category must be the short code matching data-filter
+            // 💡 FIX: Using short code 'hs'
             category: 'hs', 
             imgSrc: 'assets/img/portfolio/heatmap.png',
             title: 'Heart Disease Prediction Model',
-            description: 'Healthcare system', // The visible description can remain long
-            summary: 'A machine learning solution to predict heart disease risk using patient data.',
+            description: 'Healthcare system',
+            summary: 'A machine learning solution to predict heart disease risk using patient data (R/Python).',
             detailsLink: 'portfolio-detail-3.html',
             pageType: 'hs'
         },
         {
-            // CHANGE: category must be the short code matching data-filter
+            // 💡 FIX: Using short code 'epa'
             category: 'epa', 
             imgSrc: 'assets/img/portfolio/stk2.png',
             title: 'Stock Market Analysis',
-            description: 'E.Gov and Policy Analysis', // The visible description can remain long
-            summary: 'Analyzing stock market data to uncover insights and trends using Yahoo Finance API.',
+            description: 'E.Gov and Policy Analysis',
+            summary: 'Time-series analysis of stock market data for policy impact modeling.',
             detailsLink: 'portfolio-stock-market-analysis.html',
             pageType: 'epa'
         }
@@ -214,13 +214,13 @@
     portfolioItems.forEach((item, index) => {
         const clone = document.importNode(template, true);
         
-        // This line now adds the correct short class (e.g., 'fr')
+        // This correctly adds the short class (e.g., 'fr') for Isotope filtering
         clone.querySelector('.portfolio-item').classList.add(item.category); 
         
         clone.querySelector('img').src = item.imgSrc;
         clone.querySelector('img').alt = item.title;
         clone.querySelector('.portfolio-info h4').textContent = item.title;
-        // The visible description now uses the full name from the 'description' property
+        // The visible description uses the full name from the 'description' property
         clone.querySelector('.portfolio-info p').textContent = item.description; 
         clone.querySelector('.portfolio-description p').textContent = item.summary;
         
