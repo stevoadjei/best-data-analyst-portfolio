@@ -22,7 +22,7 @@ body {
 /* ------------------------------------------- */
 #hero {
     /* We use !important to guarantee this change overrides any other conflicting styles. */
-    min-height: 90vh !important; 
+    min-height: 70vh !important; 
 }
 a {
   color: var(--primary-blue);
