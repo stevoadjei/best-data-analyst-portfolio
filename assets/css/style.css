@@ -565,8 +565,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-    #hero {
-        height: calc(70vh - 80px); /* Adjust for mobile header */
+   #hero {
+        min-height: 70vh !important; 
+        height: auto !important;
     }
 
     .hero-content {
