@@ -17,11 +17,9 @@ body {
   margin: 0;
   padding: 0;
 }
-/* ------------------------------------------- */
-/* FIX: ADJUST HERO HEIGHT TO SHOW NEXT SECTION */
-/* ------------------------------------------- */
+
 #hero {
-    /* We use !important to guarantee this change overrides any other conflicting styles. */
+ 
     min-height: 70vh !important; 
 }
 a {
@@ -463,7 +461,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #hero {
     width: 100%;
-    height: 100vh;
+    height: 70vh;
     background: #f5f7fa; /* Light gray background */
     position: relative;
     overflow: hidden;
