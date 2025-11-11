@@ -1,5 +1,3 @@
-
-
 (function () {
     "use strict";
 
@@ -38,7 +36,7 @@
         const button = select(".back-to-top");
         if (!button) return;
         const toggleVisibility = () =>
-            button.classList[window.scrollY > 100 ? "add" : "remove"]("active");
+            button.classListwindow.scrollY > 100 ? "add" : "remove";
         window.addEventListener("load", toggleVisibility);
         document.addEventListener("scroll", toggleVisibility);
     };
@@ -110,25 +108,21 @@
 
     /**
      * Portfolio functionality: Isotope filtering and lightbox
-     * REVERTED TO STABLE LOGIC, ENSURES CORRECT FILTER TARGETING.
+     * CORRECTED: Relies solely on Isotope and targets the correct .btn-filter class for filtering.
      */
     const portfolio = () => {
         const container = select(".portfolio-container");
         if (container) {
-            // Initialize Isotope with a stable configuration
-            const isotope = new Isotope(container, {
-                itemSelector: ".portfolio-item",
-                // Use fitRows for predictable grid layout, fixes many alignment bugs
-                layoutMode: 'fitRows'
-            });
+            // 1. Initialize Isotope
+            const isotope = new Isotope(container, { itemSelector: ".portfolio-item" });
             
-            // Select all filter buttons
+            // 2. Select all filter buttons
             const filters = select(".btn-filter", true);
 
-            // Attach click listener to buttons
+            // 3. Attach click listener to buttons
             on(
                 "click",
-                ".btn-filter", // Correctly targets your button class
+                ".btn-filter", // Target the button class
                 (e) => {
                     e.preventDefault();
                     
@@ -137,14 +131,8 @@
                     e.target.classList.add("active");
                     
                     // Use Isotope to filter and arrange the items
+                    // Data-filter contains the class name (e.g., .fr)
                     isotope.arrange({ filter: e.target.getAttribute("data-filter") });
-                    
-                    // Force a re-layout after filtering to ensure the top-left alignment is reset
-                    // This must be delayed slightly to account for CSS/AOS transitions
-                    setTimeout(() => {
-                        isotope.layout(); 
-                    }, 500); 
-
                 },
                 true
             );
@@ -220,7 +208,7 @@
         mobileNav();
         handleScrollToLinks();
         preloader();
-        portfolio(); // Uses the stable logic
+        portfolio(); // Uses the corrected logic
         portfolioSlider();
         skillsAnimation();
         testimonialsSlider();
@@ -409,4 +397,4 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
-});
+}); 
