@@ -1,8 +1,8 @@
-# **Stephen Adjei’s Data Analytics Portfolio**
+# **Stephen Adjei - Data Analyst Portfolio**
 
 Welcome to my portfolio!  
 
-I’m Stephen, a data analyst with a strong foundation in computer science and a passion for turning raw data into actionable insights. I specialize in data cleaning, analysis, and visualization, leveraging tools like Python, SQL, Tableau, and Excel to deliver impactful solutions.  
+I am Stephen, a data analyst with a strong foundation in computer science and a passion for turning raw data into actionable insights. I specialize in data cleaning, analysis, and visualization, leveraging Python, SQL, Tableau, R, Power BI and Excel to deliver impactful solutions.  
 
 In this portfolio, you’ll find data-driven projects that showcase my technical proficiency and analytical expertise. These projects highlight my ability to organize complex datasets, uncover meaningful insights, and present findings in a visually compelling way.  
 
@@ -13,14 +13,6 @@ In this portfolio, you’ll find data-driven projects that showcase my technical
 2. [Portfolio Projects](#portfolio-projects)   
 3. [Certifications](#certifications)  
 4. [Education](#education)  
-
----
-
-## **About**  
-
-For me, data analysis is about solving problems and empowering decision-making with facts. With academic training in computer science and e-government, and hands-on experience with various analytical tools, I approach data with precision and creativity.  
-
-Whether it's exploring trends, building predictive models, or creating insightful dashboards, I aim to deliver clarity and drive change through data.  
 
 ---
 
