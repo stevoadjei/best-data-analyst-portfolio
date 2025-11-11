@@ -5,9 +5,13 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 }
-
-.hero {
-    min-height: 80vh; 
+/* ------------------------------------------- */
+/* FIX: ADJUST HERO HEIGHT TO SHOW NEXT SECTION */
+/* ------------------------------------------- */
+#hero {
+    /* We use !important to guarantee this change overrides any other conflicting styles. */
+    min-height: 80vh !important; 
+} 
 .portfolio .portfolio-item {
     position: relative;
     overflow: hidden;
