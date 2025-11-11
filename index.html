@@ -155,72 +155,81 @@
               </div>
           </template>
           <!-- Portfolio Items List -->
-          <script>
-              const portfolioItems = [
-                   {
-                      category: 'Financial and Risk',
-                      imgSrc: 'assets/img/portfolio/hotelbarss.png',
-                      title: '3rd party risk',
-                      description: 'Vendor risk',
-                      summary: 'Analyzing hotel booking data to uncover insights and trends.',
-                      detailsLink: 'https://grcdashboard.streamlit.app/',
-                      pageType: 'fr'
-                  }, {
-                      category: 'Operational and Process Optimization',
-                      imgSrc: 'assets/img/portfolio/hotelbarss.png',
-                      title: 'Hotel Booking Analysis',
-                      description: 'Business',
-                      summary: 'Analyzing hotel booking data to uncover insights and trends.',
-                      detailsLink: 'portfolio-del.html',
-                      pageType: 'opo'
-                  },
-                  {
-                      category: 'Operational and Process Optimization',
-                      imgSrc: 'assets/img/portfolio/custseg9.png',
-                      title: 'Customer Segmentation Analysis',
-                      description: 'Business',
-                      summary: 'Customer segmentation analysis using K-Means clustering on Walmart sales data.',
-                      detailsLink: 'portfolio-detail.html',
-                      pageType: 'opo'
-                  },
-                  {
-                      category: 'Healthcare system',
-                      imgSrc: 'assets/img/portfolio/heatmap.png',
-                      title: 'Heart Disease Prediction Model',
-                      description: 'Health',
-                      summary: 'A machine learning solution to predict heart disease risk using patient data.',
-                      detailsLink: 'portfolio-detail-3.html',
-                      pageType: 'hs'
-                  },
-                  {
-                      category: 'E.Gov and Policy Analysis',
-                      imgSrc: 'assets/img/portfolio/stk2.png',
-                      title: 'Stock Market Analysis',
-                      description: 'Stocks',
-                      summary: 'Analyzing stock market data to uncover insights and trends using Yahoo Finance API.',
-                      detailsLink: 'portfolio-stock-market-analysis.html',
-                      pageType: 'epa'
-                  }
-              ];
+         <script>
+    const portfolioItems = [
+        {
+            // CHANGE: category must be the short code matching data-filter
+            category: 'fr', 
+            imgSrc: 'assets/img/portfolio/hotelbarss.png',
+            title: '3rd party risk',
+            description: 'Financial and Risk', // The visible description can remain long
+            summary: 'Analyzing hotel booking data to uncover insights and trends.',
+            detailsLink: 'https://grcdashboard.streamlit.app/',
+            pageType: 'fr'
+        }, {
+            // CHANGE: category must be the short code matching data-filter
+            category: 'opo', 
+            imgSrc: 'assets/img/portfolio/hotelbarss.png',
+            title: 'Hotel Booking Analysis',
+            description: 'Operational and Process Optimization', // The visible description can remain long
+            summary: 'Analyzing hotel booking data to uncover insights and trends.',
+            detailsLink: 'portfolio-del.html',
+            pageType: 'opo'
+        },
+        {
+            // CHANGE: category must be the short code matching data-filter
+            category: 'opo', 
+            imgSrc: 'assets/img/portfolio/custseg9.png',
+            title: 'Customer Segmentation Analysis',
+            description: 'Operational and Process Optimization', // The visible description can remain long
+            summary: 'Customer segmentation analysis using K-Means clustering on Walmart sales data.',
+            detailsLink: 'portfolio-detail.html',
+            pageType: 'opo'
+        },
+        {
+            // CHANGE: category must be the short code matching data-filter
+            category: 'hs', 
+            imgSrc: 'assets/img/portfolio/heatmap.png',
+            title: 'Heart Disease Prediction Model',
+            description: 'Healthcare system', // The visible description can remain long
+            summary: 'A machine learning solution to predict heart disease risk using patient data.',
+            detailsLink: 'portfolio-detail-3.html',
+            pageType: 'hs'
+        },
+        {
+            // CHANGE: category must be the short code matching data-filter
+            category: 'epa', 
+            imgSrc: 'assets/img/portfolio/stk2.png',
+            title: 'Stock Market Analysis',
+            description: 'E.Gov and Policy Analysis', // The visible description can remain long
+            summary: 'Analyzing stock market data to uncover insights and trends using Yahoo Finance API.',
+            detailsLink: 'portfolio-stock-market-analysis.html',
+            pageType: 'epa'
+        }
+    ];
 
-              const container = document.querySelector('.portfolio-container');
-              const template = document.getElementById('portfolio-item-template').content;
+    const container = document.querySelector('.portfolio-container');
+    const template = document.getElementById('portfolio-item-template').content;
 
-              portfolioItems.forEach((item, index) => {
-                  const clone = document.importNode(template, true);
-                  clone.querySelector('.portfolio-item').classList.add(item.category);
-                  clone.querySelector('img').src = item.imgSrc;
-                  clone.querySelector('img').alt = item.title;
-                  clone.querySelector('.portfolio-info h4').textContent = item.title;
-                  clone.querySelector('.portfolio-info p').textContent = item.description;
-                  clone.querySelector('.portfolio-description p').textContent = item.summary;
-                  
-                  const detailsLink = clone.querySelector('.details-link');
-                  detailsLink.href = item.detailsLink + (item.pageType ? `?type=${item.pageType}` : '');
-                  
-                  container.appendChild(clone);
-              });
-          </script>
+    portfolioItems.forEach((item, index) => {
+        const clone = document.importNode(template, true);
+        
+        // This line now adds the correct short class (e.g., 'fr')
+        clone.querySelector('.portfolio-item').classList.add(item.category); 
+        
+        clone.querySelector('img').src = item.imgSrc;
+        clone.querySelector('img').alt = item.title;
+        clone.querySelector('.portfolio-info h4').textContent = item.title;
+        // The visible description now uses the full name from the 'description' property
+        clone.querySelector('.portfolio-info p').textContent = item.description; 
+        clone.querySelector('.portfolio-description p').textContent = item.summary;
+        
+        const detailsLink = clone.querySelector('.details-link');
+        detailsLink.href = item.detailsLink + (item.pageType ? `?type=${item.pageType}` : '');
+        
+        container.appendChild(clone);
+    });
+</script>
       </div>
   </div>
 </section>
