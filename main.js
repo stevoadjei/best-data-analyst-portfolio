@@ -1,3 +1,11 @@
+/**
+ * Template Name: Kelly
+ * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+ * Updated: Mar 17 2024 with Bootstrap v5.3.3
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
+
 (function () {
     "use strict";
 
@@ -108,24 +116,25 @@
 
     /**
      * Portfolio functionality: Isotope filtering and lightbox
-     * FINAL FIX: Uses 'fitRows' and forces layout redraw to ensure correct positioning.
+     * REVERTED TO STABLE LOGIC, ENSURES CORRECT FILTER TARGETING.
      */
     const portfolio = () => {
         const container = select(".portfolio-container");
         if (container) {
-            // 1. Initialize Isotope with 'fitRows' layout mode
+            // Initialize Isotope with a stable configuration
             const isotope = new Isotope(container, {
                 itemSelector: ".portfolio-item",
-                layoutMode: 'fitRows' 
+                // Use fitRows for predictable grid layout, fixes many alignment bugs
+                layoutMode: 'fitRows'
             });
             
-            // 2. Select all filter buttons
+            // Select all filter buttons
             const filters = select(".btn-filter", true);
 
-            // 3. Attach click listener to buttons
+            // Attach click listener to buttons
             on(
                 "click",
-                ".btn-filter", // Target the button class
+                ".btn-filter", // Correctly targets your button class
                 (e) => {
                     e.preventDefault();
                     
@@ -135,12 +144,13 @@
                     
                     // Use Isotope to filter and arrange the items
                     isotope.arrange({ filter: e.target.getAttribute("data-filter") });
-
-                    // CRITICAL FIX: Force a layout refresh immediately after filtering
-                    // This prevents projects from maintaining their old vertical position.
+                    
+                    // Force a re-layout after filtering to ensure the top-left alignment is reset
+                    // This must be delayed slightly to account for CSS/AOS transitions
                     setTimeout(() => {
                         isotope.layout(); 
-                    }, 300); // Wait 300ms for visibility changes/animations to settle
+                    }, 500); 
+
                 },
                 true
             );
@@ -216,7 +226,7 @@
         mobileNav();
         handleScrollToLinks();
         preloader();
-        portfolio(); // Uses the corrected logic
+        portfolio(); // Uses the stable logic
         portfolioSlider();
         skillsAnimation();
         testimonialsSlider();
