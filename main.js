@@ -1,3 +1,11 @@
+/**
+ * Template Name: Kelly
+ * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
+ * Updated: Mar 17 2024 with Bootstrap v5.3.3
+ * Author: BootstrapMade.com
+ * License: https://bootstrapmade.com/license/
+ */
+
 (function () {
     "use strict";
 
@@ -108,7 +116,7 @@
 
     /**
      * Portfolio functionality: Isotope filtering and lightbox
-     * CORRECTED: Uses .btn-filter class for click handling and filtering.
+     * CORRECTED: Relies solely on Isotope and targets the correct .btn-filter class for filtering.
      */
     const portfolio = () => {
         const container = select(".portfolio-container");
@@ -122,7 +130,7 @@
             // 3. Attach click listener to buttons
             on(
                 "click",
-                ".btn-filter", // Targeting your actual button class
+                ".btn-filter", // Target the button class
                 (e) => {
                     e.preventDefault();
                     
@@ -131,6 +139,7 @@
                     e.target.classList.add("active");
                     
                     // Use Isotope to filter and arrange the items
+                    // Data-filter contains the class name (e.g., .fr)
                     isotope.arrange({ filter: e.target.getAttribute("data-filter") });
                 },
                 true
@@ -207,7 +216,7 @@
         mobileNav();
         handleScrollToLinks();
         preloader();
-        portfolio(); // Now uses the corrected function
+        portfolio(); // Uses the corrected logic
         portfolioSlider();
         skillsAnimation();
         testimonialsSlider();
