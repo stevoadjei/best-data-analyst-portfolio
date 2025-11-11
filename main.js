@@ -1,11 +1,3 @@
-/**
- * Template Name: Kelly
- * Template URL: https://bootstrapmade.com/kelly-free-bootstrap-cv-resume-html-template/
- * Updated: Mar 17 2024 with Bootstrap v5.3.3
- * Author: BootstrapMade.com
- * License: https://bootstrapmade.com/license/
- */
-
 (function () {
     "use strict";
 
@@ -116,53 +108,51 @@
 
     /**
      * Portfolio functionality: Isotope filtering and lightbox
-     * CORRECTED: Relies solely on Isotope and targets the correct .btn-filter class for filtering.
+     * FINAL FIX: Uses 'fitRows' and forces layout redraw to ensure correct positioning.
      */
-    /**
- * Portfolio functionality: Isotope filtering and lightbox
- * CRITICAL FIX: Ensures Isotope forces a layout redraw after filtering to fix positioning errors.
- */
-const portfolio = () => {
-    const container = select(".portfolio-container");
-    if (container) {
-        // 1. Initialize Isotope
-        const isotope = new Isotope(container, { 
-            itemSelector: ".portfolio-item",
-            layoutMode: 'fitRows' // Use fitRows to ensure items start cleanly at the top left
-        });
-        
-        // 2. Select all filter buttons
-        const filters = select(".btn-filter", true);
+    const portfolio = () => {
+        const container = select(".portfolio-container");
+        if (container) {
+            // 1. Initialize Isotope with 'fitRows' layout mode
+            const isotope = new Isotope(container, {
+                itemSelector: ".portfolio-item",
+                layoutMode: 'fitRows' 
+            });
+            
+            // 2. Select all filter buttons
+            const filters = select(".btn-filter", true);
 
-        on(
-            "click",
-            ".btn-filter",
-            (e) => {
-                e.preventDefault();
-                
-                // Update active state on buttons
-                filters.forEach((el) => el.classList.remove("active"));
-                e.target.classList.add("active");
-                
-                // Use Isotope to filter and arrange the items
-                isotope.arrange({ filter: e.target.getAttribute("data-filter") });
+            // 3. Attach click listener to buttons
+            on(
+                "click",
+                ".btn-filter", // Target the button class
+                (e) => {
+                    e.preventDefault();
+                    
+                    // Update active state on buttons
+                    filters.forEach((el) => el.classList.remove("active"));
+                    e.target.classList.add("active");
+                    
+                    // Use Isotope to filter and arrange the items
+                    isotope.arrange({ filter: e.target.getAttribute("data-filter") });
 
-                // 💡 CRITICAL: Force a layout refresh immediately after filtering
-                setTimeout(() => {
-                    isotope.layout(); 
-                }, 300); // Wait 300ms for animations/hiding to complete
-            },
-            true
-        );
+                    // CRITICAL FIX: Force a layout refresh immediately after filtering
+                    // This prevents projects from maintaining their old vertical position.
+                    setTimeout(() => {
+                        isotope.layout(); 
+                    }, 300); // Wait 300ms for visibility changes/animations to settle
+                },
+                true
+            );
 
-        // Refresh animations after filtering
-        isotope.on("arrangeComplete", () => AOS.refresh());
-    }
+            // Refresh animations after filtering
+            isotope.on("arrangeComplete", () => AOS.refresh());
+        }
 
-    // Initialize portfolio lightboxes
-    GLightbox({ selector: ".portfolio-lightbox" });
-    GLightbox({ selector: ".portfolio-details-lightbox", width: "90%", height: "90vh" });
-};
+        // Initialize portfolio lightboxes
+        GLightbox({ selector: ".portfolio-lightbox" });
+        GLightbox({ selector: ".portfolio-details-lightbox", width: "90%", height: "90vh" });
+    };
 
     /**
      * Portfolio details slider
