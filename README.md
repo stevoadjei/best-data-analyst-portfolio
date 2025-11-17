@@ -1,4 +1,4 @@
-# **Stephen Adjei - Data Analyst Portfolio**
+# **Stephen Manu-Adjei - Data Analyst Portfolio**
 
 Welcome to my portfolio!  
 
@@ -85,7 +85,7 @@ In this portfolio, you’ll find data-driven projects that showcase my technical
 ---
 
 ## **Education**  
-- **MSc in E-Government (Ongoing)**  
+- **MSc in Administrative Informatics (2025)**  
    University of Koblenz, Germany  
    - Focus: Big Data, Machine Learning, Public Governance, IT Management, Risk Management, Smart City Application  
 - **BSc in Computer Science (2017)**  
