@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Bike Buyer Analysis Project - Steve</title>
+  <meta content="Analysis of bike buyer demographics and purchase patterns for targeted marketing." name="description">
+  <meta content="Data Analysis, Bike Buyers, Customer Segmentation, Python, Pandas, Excel" name="keywords">
+
+    <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <link href="assets/css/style.css" rel="stylesheet">
+
+  <style>
+    .slide-description {
+      background-color: #f8f9fa;
+      border-left: 4px solid #007bff;
+      padding: 20px;
+      margin-top: 15px;
+      border-radius: 5px;
+      transition: all 0.5s ease;
+    }
+    .slide-description h3 {
+      color: #007bff;
+      margin-bottom: 15px;
+    }
+    .slide-description p {
+      color: #6c757d;
+      line-height: 1.6;
+    }
+    .portfolio-info ul li a {
+      word-break: break-all;
+    }
+    .portfolio-details {
+      padding-top: 40px;
+    }
+    .tech-stack {
+      margin: 20px 0;
+    }
+    .tech-stack span {
+      background: #f8f9fa;
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin: 0 5px 10px 0;
+      display: inline-block;
+      font-size: 14px;
+      color: #6c757d;
+    }
+    .project-stats {
+      background: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      margin-top: 20px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+    }
+    .github-stats {
+      display: flex;
+      justify-content: space-around;
+      margin: 15px 0;
+    }
+    .github-stat {
+      text-align: center;
+    }
+    .github-stat .number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0563bb;
+    }
+    .project-description {
+      margin: 30px 0;
+      line-height: 1.8;
+    }
+    .category-badge {
+      background: #0563bb;
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-size: 14px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+    .tech-badges span {
+      background: #f8f9fa;
+      padding: 5px 15px;
+      border-radius: 20px;
+      margin: 0 5px 10px 0;
+      display: inline-block;
+      font-size: 14px;
+      color: #6c757d;
+      border: 1px solid #dee2e6;
+    }
+    .project-overview {
+      margin: 30px 0;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+    }
+    .project-overview h3 {
+      color: #0563bb;
+      margin-bottom: 20px;
+    }
+    .project-badge {
+      background: #34495e;
+      color: #fff;
+      padding: 4px 12px;
+      border-radius: 15px;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+    .live-demo-btn {
+      background: #0563bb;
+      color: #fff;
+      padding: 8px 25px;
+      border-radius: 5px;
+      display: inline-flex;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .live-demo-btn i {
+      margin-left: 8px;
+    }
+    .project-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin: 20px 0;
+    }
+    .metric-card {
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 24px;
+      font-weight: bold;
+      color: #0563bb;
+    }
+    .metric-label {
+      font-size: 14px;
+      color: #6c757d;
+    }
+  </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MS7CES8GJM"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MS7CES8GJM');
+</script>
+<body>
+    <header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Steve</a></h1>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="aboutme.html">About me</a></li>
+          <li><a class="active" href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="portfolio-details">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+                        <div class="project-header">
+              <h1 id="project-title">Bike Buyer Analysis Project</h1>
+              <div class="project-meta">
+                <span><i class="bi bi-code-square"></i> Data Analysis</span>
+                <span><i class="bi bi-bicycle"></i> Buyer Segmentation</span>
+                <span><i class="bi bi-github"></i> <a href="https://github.com/stevoadjei/Bike-Buyer-Analysis-Project" id="github-link">View on GitHub</a></span>
+              </div>
+            </div>
+
+                        <div class="project-section">
+              <h2>Project Overview & Goals</h2>
+              <p>This project focused on analyzing bike buyer data to identify **key demographic and behavioral segments** most likely to purchase a bicycle. The goal was to provide actionable insights for optimizing marketing and sales strategies.</p>
+              
+              <h4>Core Business Questions:</h4>
+              <ul>
+                <li>How does a potential buyer's **age** influence their decision to purchase a bike?</li>
+                <li>Is there a correlation between **income** and the likelihood of purchasing a bike?</li>
+                <li>Do different **commute distances** show varying rates of bike purchases?</li>
+                <li>How do **marital status and gender** relate to the purchasing decision?</li>
+              </ul>
+            </div>
+			
+			<div class="project-metrics" id="project-metrics">
+			  <div class="metric-card">
+                  <div class="metric-value">1,000</div>
+                  <div class="metric-label">Unique Records</div>
+                </div>
+			  <div class="metric-card">
+                  <div class="metric-value">13</div>
+                  <div class="metric-label">Features Analyzed</div>
+                </div>
+			  <div class="metric-card">
+                  <div class="metric-value">26</div>
+                  <div class="metric-label">Duplicates Removed</div>
+                </div>
+			</div>
+
+                        <div class="project-section">
+              <h2>Data Preparation Highlights</h2>
+              <ul>
+                <li>**Data Standardization:** Confusing categorical codes were replaced for clarity (e.g., Marital Status: 'M' to 'Married', 'S' to 'Single'; Gender: 'M' to 'Male', 'F' to 'Female').</li>
+                <li>**Data Quality:** Identified and removed 26 duplicate entries, resulting in 1,000 unique records.</li>
+                <li>**Feature Engineering:** The raw `Age` column was grouped into the `Age Bracket` categories (**ADOLESCENCE, MIDDLE AGE, OLD**) to simplify visualization and analysis of trends.</li>
+                <li>**Type Conversion:** The `Income` column was explicitly converted to a currency format to enable accurate average calculations.</li>
+              </ul>
+            </div>
+
+                        <div class="project-section">
+              <h2>Key Findings & Analysis</h2>
+              <p>Analysis was performed using **Pivot Tables** to segment the data by age bracket, commute distance, and average income.</p>
+              
+              <div class="analysis-card mt-4">
+                <div class="visualization">
+                  <img src="assets/img/portfolio/bike_age_analysis.png" alt="Bike Purchase by Age Bracket Pivot" class="img-fluid">
+                  <div class="viz-caption mt-2">
+                    <h4>1. Purchase by Age Bracket</h4>
+                    <p>The **Middle Age** group showed the highest purchase volume (16 out of 25 records), confirming they are the primary target demographic.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="analysis-card mt-4">
+                <div class="visualization">
+                  <img src="assets/img/portfolio/bike_income_analysis.png" alt="Average Income by Purchase Decision" class="img-fluid">
+                  <div class="viz-caption mt-2">
+                    <h4>2. Average Income vs. Purchase</h4>
+                    <p>Bike purchasers had a significantly higher average income **($72,105)** compared to non-purchasers **($55,714)**, highlighting income as a strong predictor of purchase likelihood.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+                        <div class="project-section">
+              <h2>Actionable Insights</h2>
+              
+              <h4>🎯 Optimal Target Demographic:</h4>
+              <ul>
+                <li>The most profitable segment is the **Middle Age** bracket, specifically targeting customers with an average income of approximately **$72,105**.</li>
+              </ul>
+
+              <h4>📈 Marketing Strategy Focus:</h4>
+              <ul>
+                <li>**Commute Indicator:** The largest purchasing groups fall into the **1-2 miles** and **5-10 miles** commute distance, suggesting the bicycle is primarily a commuting tool.</li>
+                <li>**Campaign Theme:** Marketing should emphasize the **convenience, health benefits, and cost-saving** aspects of cycling for **mid-range commutes (1 to 10 miles)**.</li>
+              </ul>
+            </div>
+
+                        <div class="project-section">
+              <h2>Technical Stack</h2>
+              <div class="tech-badges" id="tech-badges">
+                <span>Python</span>
+                <span>Pandas (Data Wrangling)</span>
+                <span>Excel/Pivot Tables (Analysis & Aggregation)</span>
+                <span>Matplotlib/Seaborn (Visualization)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <script src="assets/js/main.js"></script>
+
+  <script>
+    // NOTE: This section has been updated to include your new project details.
+    // It's best practice to keep all project metadata in this single JS object
+    // to make your portfolio dynamic and easy to update.
+    
+    const projectData = {
+      'bike-buyer-analysis': {
+        title: "Bike Buyer Analysis Project",
+        status: "Completed",
+        category: "Data Analysis",
+        client: "Internal Research",
+        date: "November 2025",
+        github: "https://github.com/stevoadjei/Bike-Buyer-Analysis-Project",
+        demo: "#", // Add your live dashboard link here if you host it (e.g., Tableau Public, Power BI)
+        description: "Analysis of demographic and behavioral data to identify key segments most likely to purchase a bicycle. This project involved deep data cleaning, feature engineering (Age Bracket), and deriving actionable insights for targeted marketing campaigns.",
+        metrics: [
+          { value: "1,000", label: "Unique Records" },
+          { value: "13", label: "Features Analyzed" },
+          { value: "26", label: "Duplicates Removed" }
+        ],
+        technologies: [
+          "Python", "Pandas", "Excel/Pivot Tables", "Matplotlib/Seaborn"
+        ],
+        features: [
+          "Data Cleaning and Standardization ('M' to 'Married', 'F' to 'Female')",
+          "Age Feature Engineering into 'Age Bracket'",
+          "Analysis of Purchase Rate by Age, Commute, and Income",
+          "Identification of Optimal Target Demographic"
+        ],
+        // UPDATE THESE IMAGE PATHS! The provided links were raw GitHub assets.
+        // Replace with the path to where you save your visualizations in assets/img/portfolio/
+        images: [
+          "assets/img/portfolio/bike_age_analysis.png", 
+          "assets/img/portfolio/bike_commute_analysis.png", 
+          "assets/img/portfolio/bike_income_analysis.png", 
+          "assets/img/portfolio/bike_dashboard_overview.png"
+        ]
+      },
+      // You can put your original 'customer-segmentation' object here if you want to keep both.
+    };
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      // Set the default project to your new 'bike-buyer-analysis' if no type is specified
+      const projectType = urlParams.get('type') || 'bike-buyer-analysis';
+      
+      // --- Dynamic loading logic (same as your original, but updated for new project keys) ---
+      if (projectData[projectType]) {
+        const project = projectData[projectType];
+        
+        // Since the HTML content is now mostly hardcoded for the bike project, 
+        // we only update the elements that should be dynamic (images, metrics, etc.)
+
+        // Update project title and links
+        document.getElementById('project-title').textContent = project.title;
+        const githubLinkElement = document.getElementById('github-link');
+        githubLinkElement.href = project.github;
+        githubLinkElement.textContent = 'View on GitHub'; // Keeping it simple
+
+        // Update metrics dynamically
+        const metricsHtml = project.metrics
+          .map(metric => `
+            <div class="metric-card">
+              <div class="metric-value">${metric.value}</div>
+              <div class="metric-label">${metric.label}</div>
+            </div>
+          `).join('');
+        document.getElementById('project-metrics').innerHTML = metricsHtml;
+        
+        // Update images manually based on the simplified structure (or use swiper if preferred)
+        const imageSelectors = [
+            { selector: 'img[alt="Bike Purchase by Age Bracket Pivot"]', src: project.images[0] },
+            { selector: 'img[alt="Average Income by Purchase Decision"]', src: project.images[2] } // Using index 2 for income
+        ];
+        
+        imageSelectors.forEach(item => {
+            const imgElement = document.querySelector(item.selector);
+            if (imgElement) {
+                imgElement.src = item.src;
+            }
+        });
+        
+        // Update technologies dynamically
+        const techBadges = project.technologies
+          .map(tech => `<span>${tech}</span>`)
+          .join('');
+        document.getElementById('tech-badges').innerHTML = techBadges;
+        
+        // If you were using the swiper for a gallery, uncomment and adjust this section:
+        /*         new Swiper('.portfolio-details-slider', {
+          pagination: {
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
+          },
+          autoplay: {
+            delay: 5000,
+            disableOnInteraction: false
+          }
+        });
+        */
+      }
+    });
+  </script>
+</body>
+</html>
